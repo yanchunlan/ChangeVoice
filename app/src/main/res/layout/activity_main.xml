@@ -1,0 +1,141 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#888888">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FFF"
+        android:orientation="vertical"
+        android:paddingBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btn_normal"
+                    style="@style/AudioImgStyle"
+                    android:onClick="clickFix"
+                    android:src="@mipmap/record" />
+
+                <TextView
+                    style="@style/AudioTextStyle"
+                    android:text="原声" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btn_luoli"
+                    style="@style/AudioImgStyle"
+                    android:onClick="clickFix"
+                    android:src="@mipmap/luoli" />
+
+                <TextView
+                    style="@style/AudioTextStyle"
+                    android:text="萝莉" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btn_dashu"
+                    style="@style/AudioImgStyle"
+                    android:onClick="clickFix"
+                    android:src="@mipmap/dashu" />
+
+                <TextView
+                    style="@style/AudioTextStyle"
+                    android:text="大叔" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btn_jingsong"
+                    style="@style/AudioImgStyle"
+                    android:onClick="clickFix"
+                    android:src="@mipmap/jingsong" />
+
+                <TextView
+                    style="@style/AudioTextStyle"
+                    android:text="惊悚" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btn_gaoguai"
+                    style="@style/AudioImgStyle"
+                    android:onClick="clickFix"
+                    android:src="@mipmap/gaoguai" />
+
+                <TextView
+                    style="@style/AudioTextStyle"
+                    android:text="搞怪" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/btn_kongling"
+                    style="@style/AudioImgStyle"
+                    android:onClick="clickFix"
+                    android:src="@mipmap/kongling" />
+
+                <TextView
+                    style="@style/AudioTextStyle"
+                    android:text="空灵" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
