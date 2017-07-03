@@ -4,10 +4,8 @@
 #include <fmod.hpp>
 #include <android/log.h>
 #include <unistd.h>
-
 #define LOGI(FORMAT, ...) __android_log_print(ANDROID_LOG_INFO,"zph",FORMAT,##__VA_ARGS__);
 #define LOGE(FORMAT, ...) __android_log_print(ANDROID_LOG_ERROR,"zph",FORMAT,##__VA_ARGS__);
-
 #define TYPE_NORMAL  0
 #define TYPE_LOLITA  1
 #define TYPE_UNCLE   2
@@ -19,7 +17,6 @@ using namespace FMOD;
 
 JNIEXPORT void JNICALL Java_com_example_yanchunlan_changevoice_VoiceUtil_fix
         (JNIEnv *env, jclass jcls, jstring path_jstr, jint type) {
-
     LOGI("%s", "--> start");
 
     System *system;
@@ -44,7 +41,6 @@ JNIEXPORT void JNICALL Java_com_example_yanchunlan_changevoice_VoiceUtil_fix
             case TYPE_LOLITA:  // 萝莉
                 system->createDSPByType(FMOD_DSP_TYPE_PITCHSHIFT, &dsp);    // 可改变音调
                 dsp->setParameterFloat(FMOD_DSP_PITCHSHIFT_PITCH, 8.0);     // 8.0 为一个八度
-
                 system->playSound(sound, 0, false, &channel);
                 channel->addDSP(0, dsp);
                 break;
@@ -63,7 +59,10 @@ JNIEXPORT void JNICALL Java_com_example_yanchunlan_changevoice_VoiceUtil_fix
                 channel->addDSP(0, dsp);
                 break;
             case TYPE_FUNNY:  // 搞怪
+                system->createDSPByType(FMOD_DSP_TYPE_NORMALIZE, &dsp);    //放大声音
                 system->playSound(sound, 0, false, &channel);
+                channel->addDSP(0, dsp);
+
                 channel->getFrequency(&frequency);
                 frequency = frequency * 2;                                  //频率*2
                 channel->setFrequency(frequency);
@@ -72,6 +71,7 @@ JNIEXPORT void JNICALL Java_com_example_yanchunlan_changevoice_VoiceUtil_fix
                 system->createDSPByType(FMOD_DSP_TYPE_ECHO, &dsp);          // 控制回声
                 dsp->setParameterFloat(FMOD_DSP_ECHO_DELAY, 300);           // 延时
                 dsp->setParameterFloat(FMOD_DSP_ECHO_FEEDBACK, 20);         // 回波衰减的延迟
+
                 system->playSound(sound, 0, false, &channel);
                 channel->addDSP(0, dsp);
                 break;
@@ -80,6 +80,8 @@ JNIEXPORT void JNICALL Java_com_example_yanchunlan_changevoice_VoiceUtil_fix
         LOGE("%s", "catch exception...")
         goto end;
     }
+
+//    system->update();
 
     // 每隔一秒检测是否播放结束
     while (isPlaying) {

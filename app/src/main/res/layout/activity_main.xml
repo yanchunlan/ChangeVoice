@@ -28,7 +28,9 @@
                     android:id="@+id/btn_normal"
                     style="@style/AudioImgStyle"
                     android:onClick="clickFix"
-                    android:src="@mipmap/record" />
+                    android:src="@mipmap/record"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
 
                 <TextView
                     style="@style/AudioTextStyle"
